@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python:3.9
 COPY ./app.py .
 COPY ./test.py .
 COPY ./requirements.txt .
