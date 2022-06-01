@@ -16,6 +16,8 @@ class MyTestCase(unittest.TestCase):
     def test_app(self):
         self.assertTrue(self.app.config['TESTING'])
 
+    def test_case(self):
+        self.assertEqual(1, 0)
 
 
 if __name__ == '__main__':
