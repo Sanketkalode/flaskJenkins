@@ -4,16 +4,20 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - docker login --username=sanketkalode --password=$PASSWORD
+#      - docker login --username=sanketkalode --password=$PASSWORD
+      - $(aws ecr get-login --no-include-email --region $AWS_REGION)
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t sanketkalode/awsflask .
-      - docker tag sanketkalode/awsflask sanketkalode/awsflask:$IMAGE_TAG
+      - docker build -t awsflask:latest .
+      - docker tag awsflask:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/awsflask:latest
+
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push sanketkalode/awsflask:$IMAGE_TAG
+#      - docker tag awsflask sanketkalode/awsflask:$IMAGE_TAG
+#      - docker push sanketkalode/awsflask:$IMAGE_TAG
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/awsflask:latest
