@@ -1,6 +1,6 @@
 [
   {
     "name": "awsflask",
-    "imageUri": "sanketkalode/awsflask"
+    "imageUri": "089409322179.dkr.ecr.us-east-1.amazonaws.com/awsflask:latest"
   }
 ]

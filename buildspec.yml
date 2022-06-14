@@ -1,3 +1,5 @@
+## This file is used by codebuild to create docker image and upload it to ECR
+
 version: 0.2
 
 phases:
